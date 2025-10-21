@@ -80,3 +80,41 @@ try:
 except:
     pass
 
+################Slider 1 - HEIGHT#####################
+# Add label for Height slider
+Label(root, text="HEIGHT (cm)", font="arial 14 bold", bg="white", fg="#1f6e68").place(x=55, y=130)
+
+current_value = tk.DoubleVar()
+
+def get_current_value():
+    return "{: .2f}".format(current_value.get())
+
+def slider_changed(event):
+    Height.set(get_current_value())
+    update_man_image()
+
+def slider_changed2(event):
+    Weight.set(get_current_value2())
+    update_man_image()
+
+def update_man_image():
+    height_val = int(float(get_current_value()))
+    weight_val = int(float(get_current_value2()))
+    
+    # Calculate width based on weight (min 30, max 150)
+    width = 30 + int(weight_val * 0.6)  # scales from 30 to 150 as weight goes 0-200
+    
+    # Calculate height based on height value
+    img_height = 10 + height_val
+    
+    try:
+        img = Image.open("Images/man.png")
+        resized_image = img.resize((width, img_height))
+        photo2 = ImageTk.PhotoImage(resized_image)
+        secondimage.config(image=photo2)
+        # Adjust x position to keep centered as width changes
+        x_pos = 95 - (width // 2)
+        secondimage.place(x=x_pos, y=550-height_val)
+        secondimage.image = photo2
+    except:
+        pass
