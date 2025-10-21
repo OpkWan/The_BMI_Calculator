@@ -62,3 +62,21 @@ except:
 
 #bottom box
 Label(root,width=72,height=18,bg="lightblue").pack(side=BOTTOM)
+
+
+#two boxes
+try:
+    box=PhotoImage(file="Images/box.png")
+    Label(root,image=box).place(x=20,y=100)
+    Label(root,image=box).place(x=240,y=100)
+except:
+    pass
+
+
+#scale
+try:
+    scale=PhotoImage(file="Images/scale.png")
+    Label(root,image=scale,bg="lightblue").place(x=20,y=310)
+except:
+    pass
+
