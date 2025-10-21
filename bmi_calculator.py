@@ -9,7 +9,7 @@ root.geometry("470x580+300+200")
 root.resizable(False,False)
 root.configure(bg="#f0f1f5")
 
-=======
+
 def BMI():
     try:
         h=float(Height.get())
@@ -51,3 +51,14 @@ try:
     root.iconphoto(False,image_icon)
 except:
     pass
+
+#top
+try:
+    top=PhotoImage(file="Images/top.png")
+    top_image=Label(root,image=top,background="#f0f1f5")
+    top_image.place(x=-10,y=-10)
+except:
+    pass
+
+#bottom box
+Label(root,width=72,height=18,bg="lightblue").pack(side=BOTTOM)
